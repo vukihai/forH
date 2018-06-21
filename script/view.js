@@ -74,6 +74,22 @@ var creatEdge = function(x1, y1, x2, y2) {
     ctx2.lineTo(30*(mid+x2), 30*(mid-y2));
     ctx2.stroke();
 }
+/*
+*   Hàm này dùng để vẽ đoạn thẳng in đậm
+*   x1 y1 x2 y2 là tọa độ 2 đầu 
+*   
+*/
+var boldEdge = function(x1, y1, x2, y2) {
+    var c3 = document.getElementById("dijkstra");
+    var ctx3 = c3.getContext("2d");
+    ctx3.strokeStyle="#000000";
+    ctx3.lineWidth=5;
+    var mid = (MIN + MAX)/2;
+    mid = MAX-mid;
+    ctx3.moveTo(30*(mid+x1), 30*(mid-y1));
+    ctx3.lineTo(30*(mid+x2), 30*(mid-y2));
+    ctx3.stroke();
+}
 
 
 
@@ -85,4 +101,3 @@ var creatEdge = function(x1, y1, x2, y2) {
 
 
 
-creatMainView();
