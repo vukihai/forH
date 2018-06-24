@@ -36,7 +36,7 @@ var find = function() {
     var x2 = document.getElementById("x2").value;
     var y1 = document.getElementById("y1").value;
     var y2 = document.getElementById("y2").value;
-    dijkstra(5,x1, y1, x2, y2);
+    dijkstra(document.getElementById("point").value,x1, y1, x2, y2);
 }
 var createOxy = function() {
     clearoxy();

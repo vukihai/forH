@@ -1,6 +1,6 @@
 //var MIN = -15;
 //var MAX = 15;
-var MAX_POINT = 20;
+var MAX_POINT = 200;
 
 // mảng lưu tọa độ các điểm
 // point[i][1] là tọa độ x của điểm i
