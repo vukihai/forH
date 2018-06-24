@@ -73,8 +73,21 @@ var creatEdge = function(x1, y1, x2, y2) {
     ctx2.lineTo(30*(mid+x2), 30*(mid-y2));
     ctx2.stroke();
 }
+var clearoxy = function() {
+    var c3 = document.getElementById("oxy");
+    var ctx3 = c3.getContext("2d");
+    ctx3.clearRect(0,0,c3.width, c3.height);
+    
+    var c3 = document.getElementById("grid");
+    var ctx3 = c3.getContext("2d");
+    ctx3.clearRect(0,0,c3.width, c3.height);
+    clearCanvas();
+}
 var clearCanvas = function() {
     var c3 = document.getElementById("pointEdge");
+    var ctx3 = c3.getContext("2d");
+    ctx3.clearRect(0,0,c3.width, c3.height);
+    var c3 = document.getElementById("dijkstra");
     var ctx3 = c3.getContext("2d");
     ctx3.clearRect(0,0,c3.width, c3.height);
 }
