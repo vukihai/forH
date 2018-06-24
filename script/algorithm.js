@@ -1,7 +1,5 @@
-//note: 2 hàm random chưa fix th random ra các điểm và các cạnh trùng lặp
-
-var MIN = -15;
-var MAX = 15;
+//var MIN = -15;
+//var MAX = 15;
 var MAX_POINT = 20;
 
 // mảng lưu tọa độ các điểm
@@ -27,6 +25,10 @@ for(var i=0; i<MAX_POINT; i++) {
 *
 */
 var randomPoint = function(num) {
+    for(var i=0; i<MAX_POINT; i++) {
+    point[i][1] = 0;
+    point[i][2] = 0;
+}
     for(var i=0; i<num; i++) {
         point[i][1] = MAX- Math.floor(Math.random() * (MAX-MIN));
         point[i][2] = MAX- Math.floor(Math.random() * (MAX-MIN));
@@ -40,9 +42,22 @@ var randomPoint = function(num) {
 *   numOfPoint: số lượng điểm hiện có
 */
 var randomEdge = function(num, numOfPoint) {
+    if(num > numOfPoint*(numOfPoint-1)/2) {
+        alert("số cạnh không hợp lệ");
+        return;
+    }
+    for(var i=0; i<MAX_POINT; i++) {
+        for(var j=0; j<MAX_POINT; j++) {
+            graph[i][j] = 0;
+        }
+    }
     for(var i=0; i<num; i++) {
         var p1 = Math.floor(Math.random() * numOfPoint);
         var p2 = Math.floor(Math.random() * numOfPoint);
+        if(graph[p1][p2] != 0 || p1 == p2) {
+            i--;
+            continue;
+        }
         graph[p1][p2] = Math.sqrt((point[p1][1]-point[p2][1])*(point[p1][1]-point[p2][1]) + (point[p1][2]-point[p2][2])*(point[p1][2]-point[p2][2]));
         graph[p2][p1] = graph[p1][p2];
         creatEdge(point[p1][1],point[p1][2],point[p2][1], point[p2][2]);

@@ -16,11 +16,11 @@ Your browser does not support the HTML5 canvas tag.</canvas>
     
     
     <p style="border:1px solid #d3d3d3; position: absolute; left: 1000px; top: 0; z-index: 0;">
-        nhập kích thước oxy:<input type="number" id="min" value="-15"></br>
-    <input type="number" id="max" value="15"></br>
+        nhập kích thước oxy:<input type="number" id="kt" value="15"></br>
+    <button onclick="createOxy()">vẽ oxy</button></br>
     nhập số điểm:<input type="number" id="point" value="5"></br>
     nhập số cạnh:<input type="number" id="edge" value="10"></br>
-<button onclick="createOxy()">vẽ oxy</button></br>
+    <button onclick="randompoint()">sinh điểm ngẫu nhiên</button></br>
 chọn điểm đầu:x = <input type="number" id="x1"></br>y=<input type="number" id="y1"></br>
 chọn điểm cuối:x = <input type="number" id="x2"></br>y=<input type="number" id="y2"></br>
 <button onclick="find()">tìm đường</button>
@@ -39,11 +39,14 @@ var find = function() {
     dijkstra(5,x1, y1, x2, y2);
 }
 var createOxy = function() {
-    var MIN = document.getElementById("min").value;
-    var MAX = document.getElementById("max").value;
+    MIN = - document.getElementById("kt").value;
+    MAX = -MIN;
+    creatMainView();
+}
+var randompoint = function() {
+    clearCanvas();
     var p = document.getElementById("point").value;
     var e = document.getElementById("edge").value;
-    creatMainView();
     randomPoint(p);
     randomEdge(e, p);
 }

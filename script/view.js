@@ -1,5 +1,5 @@
-var MIN = -15;
-var MAX = 15;
+var MIN = -10;
+var MAX = 10;
 /*
 *   Hàm này để kẻ hệ tọa độ oxy
 *   
@@ -33,7 +33,6 @@ var creatMainView = function() {
     ctx2.moveTo((MAX-mid)*30,0);
     ctx2.lineTo((MAX-mid)*30,6000);
     ctx2.stroke();
-    
     // vẽ các số trên trục tọa độ
     for(var i=MIN; i<MAX; i++) {
         ctx2.strokeText(-i, 30*(MAX-i),(MAX-mid)*30 - 3);
@@ -73,6 +72,11 @@ var creatEdge = function(x1, y1, x2, y2) {
     ctx2.moveTo(30*(mid+x1), 30*(mid-y1));
     ctx2.lineTo(30*(mid+x2), 30*(mid-y2));
     ctx2.stroke();
+}
+var clearCanvas = function() {
+    var c3 = document.getElementById("pointEdge");
+    var ctx3 = c3.getContext("2d");
+    ctx3.clearRect(0,0,c3.width, c3.height);
 }
 /*
 *   Hàm này dùng để vẽ đoạn thẳng in đậm
